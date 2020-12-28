@@ -15,11 +15,30 @@
         android:id="@+id/get_message"
         android:text = "获取数据"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/get_allname"
+        android:text = "查看全部学生姓名"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/save_name"
+        android:text = "保存姓名"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/updata"
+        android:text = "更新温度"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:id="@+id/textview"/>
+
 
 
 

@@ -151,6 +151,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         //FragmentManager fm = getSupportFragmentManager();
         Intent intent1 = new Intent(StartActivity.this,MainActivity.class);
         Intent intent2 = new Intent(StartActivity.this,GetName.class);
+        Intent intent3 = new Intent(StartActivity.this,LastActivity.class);
+
         switch (id){
             case 1:
                 Toast.makeText(StartActivity.this,"点击第一个",Toast.LENGTH_LONG).show();
@@ -163,6 +165,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 //fm.beginTransaction().replace(R.id.fragment_container,new SecondFragment()).commit();
                 break;
             case 3:
+                startActivity(intent3);
                 //fm.beginTransaction().replace(R.id.fragment_container,new ThirdFragment()).commit();
                 break;
         }

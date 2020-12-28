@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -20,9 +21,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
 
-public class GetName extends AppCompatActivity {
+public class GetName extends AppCompatActivity  {
 
-    Button getmge;
+    Button getmge,savename,allname,updata;
     EditText editText;
     TextView textview;
     private BluetoothSocket socket8051;
@@ -84,12 +85,77 @@ public class GetName extends AppCompatActivity {
                 }catch (Exception e){
                     e.printStackTrace();
                 }
+
+
             }
         });
+
+
+        savename.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str = editText.getText().toString();
+
+                Toast.makeText(GetName.this,str,Toast.LENGTH_LONG).show();
+                
+                    str+=":";
+                    for(int i= 0;i<str.length();i++){
+                    byte[] temp = BigInteger.valueOf(768+str.charAt(i)-'a'+65).toByteArray();
+                    Log.e("array", "tempbyte: "+temp[0]+","+temp[1]+":"+i+":"+str.length());
+                    try{
+                        out8051.write(temp);
+                        out8051.flush();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        allname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                array_51 = BigInteger.valueOf(256+5).toByteArray();
+                Log.e("array", "sendmessage: "+array_51[0]+","+array_51[1]);
+                try{
+                    out8051.write(array_51);
+                    out8051.flush();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+        updata.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                array_51 = BigInteger.valueOf(256+4).toByteArray();
+                Log.e("array", "sendmessage: "+array_51[0]+","+array_51[1]);
+                try{
+                    out8051.write(array_51);
+                    out8051.flush();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+
+
+
     }
+
+
 
     public void initial(){
         getmge = (Button) findViewById(R.id.get_message);
+        savename = (Button) findViewById(R.id.save_name);
+        allname = (Button) findViewById(R.id.get_allname);
+        updata = (Button) findViewById(R.id.updata);
         editText = (EditText) findViewById(R.id.edittext);
         textview = (TextView) findViewById(R.id.textview);
 
