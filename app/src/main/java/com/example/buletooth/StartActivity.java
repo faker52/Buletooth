@@ -36,10 +36,10 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     private Button mBtnThr;
     private ActionBar actionBar;
     private Toolbar mNormalToolbar;
-    private final UUID UUID8051=UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-    private static final int REQUEST_ENABLE_BULETOOTH=2;
+    private final UUID UUID8051=UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");//每个蓝牙特有的uuid
+    private static final int REQUEST_ENABLE_BULETOOTH=2;//最大连接数
     private BluetoothAdapter bluetoothAdapter;
-    private BluetoothSocket socket8051;
+    private BluetoothSocket socket8051;//socket实例
     private BufferedOutputStream out8051;
     byte[] array_51;
 
@@ -64,14 +64,14 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
             Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(intent,REQUEST_ENABLE_BULETOOTH);
             Toast.makeText(this,"启动蓝牙中",Toast.LENGTH_LONG).show();
-        }
+        }//判断蓝牙是否链接
 
-        BluetoothDevice device =bluetoothAdapter.getRemoteDevice("20:19:09:26:40:74");
+        BluetoothDevice device =bluetoothAdapter.getRemoteDevice("20:19:09:26:40:74");//创建device对象
 
         try{
             socket8051 =device.createRfcommSocketToServiceRecord(UUID8051);
-            socket8051.connect();
-            ((Mysocket)getApplication()).setSocket(socket8051);
+            socket8051.connect();//进行连接
+            ((Mysocket)getApplication()).setSocket(socket8051);//设置单例模式
             out8051 = new BufferedOutputStream(socket8051.getOutputStream());
             array_51 = BigInteger.valueOf(512+127).toByteArray();
             out8051.write(array_51);

@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     //private EditText editOutNum;
     private CheckBox D0,D1,D2,D3,D4,D5,D6,D7;
     byte[] array_51;
-    private final UUID UUID8051=UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+    private final UUID UUID8051=UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");//；每一个蓝牙特有的uuid，调用
 
 
     private static final int REQUEST_ENABLE_BULETOOTH=2;

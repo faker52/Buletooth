@@ -16,44 +16,60 @@
         android:id="@+id/left"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="268dp"
+        android:layout_below="@+id/up"
+        android:layout_toLeftOf="@+id/up"
         android:text="左" />
 
     <Button
         android:id="@+id/down"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="369dp"
-        android:layout_marginEnd="156dp"
+        android:layout_below="@+id/left"
+        android:layout_toRightOf="@+id/left"
         android:text="下" />
 
     <Button
         android:id="@+id/right"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="255dp"
-        android:layout_marginBottom="362dp"
+        android:layout_below="@+id/up"
+        android:layout_toRightOf="@+id/up"
         android:text="右" />
 
     <Button
         android:id="@+id/start"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="154dp"
-        android:layout_marginBottom="363dp"
+
+        android:layout_below="@+id/up"
+        android:layout_toRightOf="@+id/left"
         android:text="开始/暂停" />
+
+    <LinearLayout
+        android:layout_marginTop="600dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <SeekBar
+            android:max="7"
+            android:progress="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 
 </RelativeLayout>
